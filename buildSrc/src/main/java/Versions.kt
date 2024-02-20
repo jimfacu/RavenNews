@@ -5,7 +5,7 @@ object Versions {
     const val hilt = "2.45"
     const val material = "1.12.0-alpha03"
     const val appCompat = "1.6.1"
-    const val lifeCycle = "2.7.0"
+    const val lifeCycle = "2.3.1"
     const val coroutines = "1.7.1"
     const val kotlinCore = "1.12.0"
 

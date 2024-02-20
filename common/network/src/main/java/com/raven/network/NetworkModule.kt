@@ -1,5 +1,8 @@
 package com.raven.network
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.raven.home.data.remote.service.HomeService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,7 +33,21 @@ class NetworkModule {
             .addConverterFactory(GsonConverterFactory.create()).client(okHttpClient).build()
     }
 
+    @Provides
+    @Singleton
+    fun provideHomeService(retrofit: Retrofit): HomeService {
+        return retrofit.create(HomeService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGson(): Gson {
+        return GsonBuilder().create()
+    }
+
+
+
     companion object {
-        private const val BASE_URL = ""
+        private const val BASE_URL = "https://api.nytimes.com/"
     }
 }

@@ -7,6 +7,7 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":feature:home")))
     di()
     general()
     network()
