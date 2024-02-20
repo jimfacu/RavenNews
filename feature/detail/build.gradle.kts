@@ -2,11 +2,10 @@ import ext.implementation
 
 plugins {
     id(ModulePlugin.MODULE_NAME)
-    id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.raven.home"
+    namespace = "com.raven.detail"
 
     buildFeatures {
         dataBinding = true
@@ -22,4 +21,5 @@ dependencies {
     navigation()
 
     implementation(project(":core"))
+    implementation(project(":feature:home"))
 }
